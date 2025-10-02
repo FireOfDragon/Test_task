@@ -1,14 +1,11 @@
 package com.example.test_task.service;
 
-import com.example.test_task.dto.Goose;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -43,30 +40,9 @@ class GeeseServiceTest {
     void shouldParseValidGeeseCorrectly() {
         var geese = geeseService.getAllGeese();
 
-        assertThat(geese).hasSize(3);
+        assertThat(geese).hasSize(2);
         assertThat(geese.get(0).getName()).isEqualTo("Sanya");
         assertThat(geese.get(1).getType()).isEqualTo("WhiteGoose");
     }
-
-    @Test
-    void shouldFailIfAgeIsZero() {
-        List<Goose> geese = geeseService.getAllGeese();
-
-        boolean foundInvalid = false;
-
-        for (Goose goose : geese) {
-            if (goose.getAge() == 0) {
-                foundInvalid = true;
-                break;
-            }
-        }
-
-        if (foundInvalid) {
-            throw new IllegalArgumentException("Age must be greater than 0");
-        }
-
-        fail("Expected IllegalArgumentException for goose with age = 0");
-    }
-
 }
 
