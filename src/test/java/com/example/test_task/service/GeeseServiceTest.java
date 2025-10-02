@@ -1,15 +1,12 @@
 package com.example.test_task.service;
 
-import com.example.test_task.config.MockServerConfig;
 import com.example.test_task.dto.Goose;
-import com.example.test_task.service.GeeseService;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 
 import java.util.List;
 
@@ -22,7 +19,7 @@ class GeeseServiceTest {
     private GeeseService geeseService;
 
     @Autowired
-    private MockWebServer mockWebServer; // инжектим сам сервер
+    private MockWebServer mockWebServer;
 
     @BeforeEach
     void setupMockResponse() {
@@ -49,7 +46,6 @@ class GeeseServiceTest {
         assertThat(geese).hasSize(3);
         assertThat(geese.get(0).getName()).isEqualTo("Sanya");
         assertThat(geese.get(1).getType()).isEqualTo("WhiteGoose");
-        assertThat(geese.get(2).getAge()).isEqualTo(0); // временно примем, но проверим в другом тесте
     }
 
     @Test
