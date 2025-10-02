@@ -14,16 +14,16 @@ import java.io.IOException;
 @Configuration
 public class MockServerConfig {
 
-    @Bean
-    public MockWebServer start() throws IOException, JSONException {
+    @Bean(destroyMethod = "shutdown")
+    public MockWebServer start() throws IOException {
         MockWebServer server = new MockWebServer();
         server.start();
-        formResponse(server);
         return server;
     }
 
     @Bean
-    public String apiUrl(MockWebServer server) {
+    public String apiUrl(MockWebServer server) throws JSONException {
+        formResponse(server);
         return server.url("/geese/counter").toString();
     }
 
@@ -50,8 +50,6 @@ public class MockServerConfig {
         geeseArray.put(goose3);
 
         response.put("geese", geeseArray);
-
-        System.out.println(response.toString());
 
         server.enqueue(new MockResponse()
                 .setBody(response.toString())
