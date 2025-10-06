@@ -1,6 +1,6 @@
 # Test Task – Goose Parser
 
-[🇺🇸 English](README.md) | [🇺🇦 Українська](README.uk.md)
+[🇺🇸 English](README.md) | [🇺🇦 Українська](README.ua.md)
 
 ## Task Overview
 
