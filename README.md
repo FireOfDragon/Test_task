@@ -1,5 +1,7 @@
 # Test Task – Goose Parser
 
+[🇺🇸 English](README.md) | [🇺🇦 Українська](README.uk.md)
+
 ## Task Overview
 
 This is a simplified Spring Boot application that simulates working with data received from an external API.  
@@ -25,13 +27,13 @@ You need to complete the implementation of the following components:
     - `GeeseResponse` should contain a list of raw goose entries that need to be mapped to final `Goose` objects.
 
 3. **Validation Rule**:
-    - If any goose has `age = 0`, throw an `IllegalArgumentException`.
+    - If any goose has `age = 0`, it's entry must not be included in final List.
 
 ---
 
 ## Mock Response Example
 
-The mock server is already configured and will return a JSON like this:
+The mock server is already configured and will return String that contains a JSON like this:
 
 ```json
 {

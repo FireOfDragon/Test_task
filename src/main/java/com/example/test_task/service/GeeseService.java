@@ -14,10 +14,21 @@ public class GeeseService {
         this.requestsService = requestsService;
     }
 
+    /**
+     * Parses GeeseResponse entries
+     *
+     * @return List of Goose objects
+     */
     public List<Goose> getAllGeese() {
         return null;
     }
 
+    /**
+     * Converts enum constant to camel case String
+     *
+     * @param type enum constant e.g."BIM_BOM"
+     * @return String in camel case e.g. "BimBom"
+     */
     private String normalizeType(String type) {
         return null;
     }

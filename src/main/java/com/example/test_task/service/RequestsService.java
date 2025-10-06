@@ -8,12 +8,20 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class RequestsService {
 
+    /**
+     * Complete API link
+     */
     private final String apiUrl;
 
     public RequestsService(String apiUrl) {
         this.apiUrl = apiUrl;
     }
 
+    /**
+     * Builds and sends API request
+     *
+     * @return GeeseResponse object suitable for further analyze
+     */
     public GeeseResponse fetchGeese() {
         return null;
     }
