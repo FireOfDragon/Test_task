@@ -1,6 +1,6 @@
 package com.example.test_task.service;
 
-import com.example.test_task.dto.GeeseResponse;
+import com.example.test_task.dto.CameraResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +20,9 @@ public class RequestsService {
     /**
      * Builds and sends API request
      *
-     * @return GeeseResponse object suitable for further analyze
+     * @return CameraResponseDto object suitable for further analyze
      */
-    public GeeseResponse fetchGeese() {
+    public CameraResponseDto fetchCameras() {
         return null;
     }
 }

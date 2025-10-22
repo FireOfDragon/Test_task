@@ -1,33 +1,33 @@
 package com.example.test_task.service;
 
-import com.example.test_task.dto.Goose;
+import com.example.test_task.dto.CameraDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class GeeseService {
+public class CameraService {
 
     private final RequestsService requestsService;
 
-    public GeeseService(RequestsService requestsService) {
+    public CameraService(RequestsService requestsService) {
         this.requestsService = requestsService;
     }
 
     /**
-     * Parses GeeseResponse entries
+     * Parses CameraResponseDto entry
      *
-     * @return List of Goose objects
+     * @return List of CameraDto objects
      */
-    public List<Goose> getAllGeese() {
+    public List<CameraDto> getAllCameras() {
         return null;
     }
 
     /**
      * Converts enum constant to camel case String
      *
-     * @param type enum constant e.g."BIM_BOM"
-     * @return String in camel case e.g. "BimBom"
+     * @param type enum constant e.g."BimBom"
+     * @return String in camel case e.g. "bim_bom"
      */
     private String normalizeType(String type) {
         return null;

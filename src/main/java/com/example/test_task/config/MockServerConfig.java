@@ -1,6 +1,5 @@
 package com.example.test_task.config;
 
-import com.example.test_task.dto.GeeseTypes;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.json.JSONArray;
@@ -24,32 +23,32 @@ public class MockServerConfig {
     @Bean
     public String apiUrl(MockWebServer server) throws JSONException {
         formResponse(server);
-        return server.url("/geese/counter").toString();
+        return server.url("/cameras/counter").toString();
     }
 
     private void formResponse(MockWebServer server) throws JSONException {
         JSONObject response = new JSONObject();
         JSONArray geeseArray = new JSONArray();
 
-        JSONObject goose1 = new JSONObject();
-        goose1.put("name", "Sanya");
-        goose1.put("type", GeeseTypes.AFRO_AMERICAN_GOOSE);
-        goose1.put("age", "2");
+        JSONObject camera1 = new JSONObject();
+        camera1.put("name", "CAM-1");
+        camera1.put("type", "PoweredOffCamera");
+        camera1.put("channelCount", "2");
 
-        JSONObject goose2 = new JSONObject();
-        goose2.put("name", "Vanya");
-        goose2.put("type", GeeseTypes.WHITE_GOOSE);
-        goose2.put("age", "3");
+        JSONObject camera2 = new JSONObject();
+        camera2.put("name", "Office");
+        camera2.put("type", "WorkingCamera");
+        camera2.put("channelCount", "3");
 
-        JSONObject goose3 = new JSONObject();
-        goose3.put("name", "Danya");
-        goose3.put("type", GeeseTypes.LEGENDARY);
+        JSONObject camera3 = new JSONObject();
+        camera3.put("name", "CAM-34");
+        camera3.put("type", "Error");
 
-        geeseArray.put(goose1);
-        geeseArray.put(goose2);
-        geeseArray.put(goose3);
+        geeseArray.put(camera1);
+        geeseArray.put(camera2);
+        geeseArray.put(camera3);
 
-        response.put("geese", geeseArray);
+        response.put("cameras", geeseArray);
 
         server.enqueue(new MockResponse()
                 .setBody(response.toString())

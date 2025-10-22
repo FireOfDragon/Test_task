@@ -10,10 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-class GeeseServiceTest {
+class CameraServiceTest {
 
     @Autowired
-    private GeeseService geeseService;
+    private CameraService cameraService;
 
     @Autowired
     private MockWebServer mockWebServer;
@@ -21,13 +21,13 @@ class GeeseServiceTest {
     @BeforeEach
     void setupMockResponse() {
         String response = """
-            {
-              "geese": [
-                {"name":"Sanya","type":"AFRO_AMERICAN_GOOSE","age":2},
-                {"name":"Vanya","type":"WHITE_GOOSE","age":3},
-                {"name":"Danya","type":"LEGENDARY","age":0}
-              ]
-            }
+                {
+                   "cameras": [
+                     { "name": "CAM-1", "type": "PoweredOffCamera", "channels": 2 },
+                     { "name": "Office", "type": "WorkingCamera", "channels": 3 },
+                     { "name": "CAM-34", "type": "Error"}
+                   ]
+                 }
             """;
         mockWebServer.enqueue(
                 new MockResponse()
@@ -37,12 +37,12 @@ class GeeseServiceTest {
     }
 
     @Test
-    void shouldParseValidGeeseCorrectly() {
-        var geese = geeseService.getAllGeese();
+    void shouldParseValidCamerasCorrectly() {
+        var cameras = cameraService.getAllCameras();
 
-        assertThat(geese).hasSize(2);
-        assertThat(geese.get(0).getName()).isEqualTo("Sanya");
-        assertThat(geese.get(1).getType()).isEqualTo("WhiteGoose");
+        assertThat(cameras).hasSize(2);
+        assertThat(cameras.get(0).getName()).isEqualTo("Cam1");
+        assertThat(cameras.get(1).getType()).isEqualTo("WorkingCamera");
     }
 }
 
